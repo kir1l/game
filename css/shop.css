@@ -1,0 +1,327 @@
+@charset "UTF-8";
+/* Указываем box sizing */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  background: #6a84ed;
+  font-family: sans-serif;
+}
+
+.header {
+  height: 80px;
+}
+
+.header__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.header__resources {
+  color: #fff;
+  font-size: 20px;
+  font-family: sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.resources__item-money:not(:last-child) {
+  margin-right: 30px;
+}
+
+.shop__link {
+  text-decoration: none;
+  font-family: sans-serif;
+  color: #fff;
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+}
+.shop__link img {
+  margin-left: 10px;
+  height: 20px;
+}
+.shop__link:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.top__title {
+  text-align: center;
+  color: #fff;
+  font-size: 40px;
+  margin-top: 30px;
+}
+
+.dropdown {
+  max-width: 15em;
+  position: relative;
+  margin: 10px auto 0 auto;
+}
+.dropdown * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.dropdown__menu {
+  list-style: none;
+  padding: 0.2em 0.5em;
+  background: #323741;
+  border: 1px #363a43 solid;
+  -webkit-box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  color: #9fa5b5;
+  position: absolute;
+  top: 4em;
+  left: 50%;
+  width: 100%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  opacity: 0;
+  display: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  z-index: 1;
+}
+.dropdown__menu li {
+  padding: 0.7em 0.5em;
+  margin: 0.3em 0;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+.dropdown__menu li:hover {
+  background: #2a2d35;
+}
+.dropdown__menu-open {
+  display: block;
+  opacity: 1;
+}
+.dropdown__active {
+  background: #23242a;
+}
+
+.select {
+  background: #2a2f3b;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 2px #2a2f3b solid;
+  border-radius: 0.5em;
+  padding: 1em;
+  cursor: pointer;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.select-clicked {
+  border: 2px #26489a solid;
+  -webkit-box-shadow: 0 0 0.8em #26489a;
+          box-shadow: 0 0 0.8em #26489a;
+}
+.select:hover {
+  background: #323741;
+}
+
+.caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #fff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.caret-rotate {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.shop__grid {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  grid-column-gap: 30px;
+  grid-row-gap: 40px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 95%;
+  margin: 0 auto;
+  padding: 70px 0;
+}
+
+.shop-item__body {
+  width: 250px;
+  background-color: #23242a;
+  color: #fff;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.shop-item__img img {
+  border-radius: 10px 10px 0 0;
+}
+
+.shop-item__title {
+  font-size: 20px;
+  margin: 5px 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+.shop-item__text {
+  margin-bottom: 10px;
+  padding: 0 10px;
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+.value {
+  color: green;
+}
+
+.error-out {
+  color: red;
+  display: block;
+  margin: 0 auto;
+}
+
+.succes {
+  color: green;
+  display: block;
+  margin: 0 auto;
+}
+
+.shop-item__button {
+  background: green;
+  width: 50%;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px auto;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  text-align: center;
+}
+.shop-item__button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.disabled {
+  display: none !important;
+}

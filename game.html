@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>симулятор фронтендера</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__body">
+            <div class="header__resources">
+                <div class="resources__item-money">деьги: <span class="header__money-out"></span>$</div>
+                <div class="resources__item-money">уровень: <span class="header__lvl-out"></span></div>
+                <div class="resources__item-money">скорость: <span class="header__speed-out"></span> <span
+                        class="timer"></span></div>
+            </div>
+            <div class="shop">
+                <a href="shop.html" class="shop__link">SHOP<img src="assets/images/icons/shop.svg" alt="shop"></a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="laptop">
+            <div class="laptop__screen">
+                <img src="assets/images/html.png" width="1600" height="1000" alt="Screen" />
+                <div class="screen__code-box">
+                    <div class="modal start-work">
+                        <p>ПИСАТЬ КОД<span class="cursor"></span></p>
+                    </div>
+                    <div class="end-work modal disabled ">
+                        <p>$ ты написал код без <br>$ единого бага!</p>
+                        <p>$ деньги + <span class="salry-out"></span></p>
+                        <p>$ всего денег: <span class="money-out"></span> $</p>
+                        <div class="modal__close">ПРОДОЛЖИТЬ<span class="cursor"></span></div>
+                    </div>
+                    <textarea class="code" id="code-box" disabled>
+
+                    </textarea>
+                </div>
+            </div>
+            <div class="laptop__bottom">
+                <div class="laptop__under"></div>
+            </div>
+            <div class="laptop__shadow"></div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

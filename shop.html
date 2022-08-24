@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/shop.css">
+    <title>магазин</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header__body">
+            <div class="header__resources">
+                <div class="resources__item-money">деьги: <span class="header__money-out"></span>$</div>
+                <div class="resources__item-money">уровень: <span class="header__lvl-out"></span></div>
+            </div>
+            <div class="shop">
+                <a href="game.html" class="shop__link">BACK<img src="assets/images/icons/back.svg" alt="shop"></a>
+            </div>
+        </div>
+        <h2 class="top__title">добро пожаловать в <br> магазин</h2>
+    </div>
+    <div class="dropdown">
+        <div class="select">
+            <span class="selected">все</span>
+            <div class="caret"></div>
+        </div>
+        <ul class="dropdown__menu">
+            <li class="dropdown__active" data-name="all">все</li>
+            <li data-name="food">еда</li>
+            <li data-name="computer">компьютер</li>
+        </ul>
+    </div>
+    <div class="shop__grid">
+        <div class="shop__item" data-name="food">
+            <div class="shop-item__body" data-name="food">
+                <div class="shop-item__img"><img src="assets/images/coffe.jpg" alt="coffe"></div>
+                <div class="shop-item__title">Кофе - <span class="price">150</span>$</div>
+                <div class="shop-item__text">увеличивает скорость разработки в <span class="value">2</span> раза на
+                    <span class="time">2</span> минуты
+                </div>
+                <span class="error-out"></span>
+                <span class="succes"></span>
+                <div id="btnBuy" class="shop-item__button">купить</div>
+            </div>
+        </div>
+        <div class="shop__item" data-name="computer">
+            <div class="shop-item__body" data-name="computer">
+                <div class="shop-item__img"><img src="assets/images/keyboard.png" alt="coffe"></div>
+                <div class="shop-item__title">Офисная клавиатура - <span class="price">600</span>$</div>
+                <div class="shop-item__text">увеличивает скорость разработки в <span class="value">2</span> раза
+                </div>
+                <span class="error-out"></span>
+                <span class="succes"></span>
+                <div id="btnBuy" class="shop-item__button">купить</div>
+            </div>
+        </div>
+    </div>
+    <script src="js/shop.js"></script>
+</body>
+
+</html>
