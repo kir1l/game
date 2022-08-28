@@ -88,7 +88,7 @@ const buyDetails = (increase) => {
 	// если деталей нет то создаем новую ячейку в localStorage
 	const details = {
 		detailIncrease: increase,
-		buyedDetails: [],
+		buyedDetails: buyedDetails,
 	};
 	localStorage.setItem('details', JSON.stringify(details));
 };
@@ -121,7 +121,7 @@ window.addEventListener('load', () => {
 	const data = localStorage.getItem('data');
 	if (data == null) return;
 	({ lvl, lvlOfSpeed, money, salary, isBoost } = JSON.parse(data));
-
+	buyDetails();
 	const details = localStorage.getItem('details');
 	if (details == null) return;
 	({ buyedDetails } = JSON.parse(details));
@@ -185,14 +185,15 @@ const filter = (option) => {
 			elem.classList.add('disabled');
 		}
 	});
+	lvlFilter();
 };
 
 // фильтр по лвлу
 const lvlFilter = () => {
 	product.forEach((card) => {
-		card.classList.remove('disabled');
+		card.classList.remove('filter-disabled');
 		if (card.dataset.lvl > lvl) {
-			card.classList.add('disabled');
+			card.classList.add('filter-disabled');
 		}
 	});
 };
