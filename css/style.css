@@ -138,14 +138,19 @@ body {
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
 }
+@media screen and (max-width: 750px) {
+  .laptop .laptop__screen .cursor {
+    height: 20px;
+  }
+}
 .laptop .laptop__screen .modal {
   width: 97%;
   height: 95%;
   background-color: #000;
   border-radius: 17px;
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 7px;
+  left: 7px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -159,6 +164,11 @@ body {
   color: #fff;
   font-family: "Press Start 2P", cursive;
   font-size: 30px;
+}
+@media screen and (max-width: 750px) {
+  .laptop .laptop__screen .modal {
+    font-size: 15px;
+  }
 }
 .laptop .laptop__screen .modal p {
   font-weight: 700;
@@ -188,6 +198,12 @@ body {
   padding-left: 20px;
   color: green;
 }
+@media screen and (max-width: 750px) {
+  .laptop .laptop__screen .end-work {
+    font-size: 10px;
+    padding-left: 5px;
+  }
+}
 .laptop .laptop__screen .end-work span {
   color: #fff;
 }
@@ -203,6 +219,11 @@ body {
   transition: transform 0.4s ease, -webkit-transform 0.4s ease;
   position: relative;
   color: #fff;
+}
+@media screen and (max-width: 750px) {
+  .laptop .laptop__screen .end-work .modal__close {
+    margin-top: 10px;
+  }
 }
 .laptop .laptop__screen .end-work .modal__close .cursor {
   height: 20px;
@@ -227,6 +248,11 @@ body {
 }
 .laptop .laptop__screen .code::-webkit-scrollbar {
   display: none;
+}
+@media screen and (max-width: 750px) {
+  .laptop .laptop__screen .code {
+    font-size: 5px;
+  }
 }
 .laptop .laptop__bottom {
   position: relative;
@@ -323,6 +349,8 @@ body {
   padding: 10px;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .header__resources {
@@ -334,6 +362,9 @@ body {
   display: flex;
 }
 
+.resources__item-money {
+  margin-bottom: 20px;
+}
 .resources__item-money:not(:last-child) {
   margin-right: 30px;
 }
@@ -350,6 +381,7 @@ body {
   transition: -webkit-transform 0.4s ease;
   transition: transform 0.4s ease;
   transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+  margin-bottom: 20px;
 }
 .shop__link img {
   margin-left: 5px;
@@ -362,4 +394,11 @@ body {
 .timer {
   margin-left: 10px;
   color: rgb(0, 0, 0);
+}
+
+.statistic {
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+  font-family: sans-serif;
 }

@@ -13,9 +13,9 @@
     <header class="header">
         <div class="header__body">
             <div class="header__resources">
-                <div class="resources__item-money">деьги: <span class="header__money-out"></span>$</div>
-                <div class="resources__item-money">уровень: <span class="header__lvl-out"></span></div>
-                <div class="resources__item-money">скорость: <span class="header__speed-out"></span> <span
+                <div class="resources__item-money">деньги: <span class="header__money-out">100</span>$</div>
+                <div class="resources__item-money">уровень: <span class="header__lvl-out">1</span></div>
+                <div class="resources__item-money">скорость: <span class="header__speed-out">5</span> <span
                         class="timer"></span></div>
             </div>
             <div class="shop">
@@ -24,6 +24,7 @@
         </div>
     </header>
     <div class="container">
+        <div class="statistic">осталось: <span id="statistic-out"></span> символов</div>
         <div class="laptop">
             <div class="laptop__screen">
                 <img src="assets/images/html.png" width="1600" height="1000" alt="Screen" />
@@ -31,7 +32,7 @@
                     <div class="modal start-work">
                         <p>ПИСАТЬ КОД<span class="cursor"></span></p>
                     </div>
-                    <div class="end-work modal disabled ">
+                    <div class="end-work modal disabled">
                         <p>$ ты написал код без <br>$ единого бага!</p>
                         <p>$ деньги + <span class="salry-out"></span></p>
                         <p>$ всего денег: <span class="money-out"></span> $</p>

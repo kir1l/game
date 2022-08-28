@@ -270,8 +270,13 @@ body {
           flex-direction: column;
 }
 
+.shop-item__img {
+  background-color: #fff;
+}
 .shop-item__img img {
   border-radius: 10px 10px 0 0;
+  height: 250px;
+  width: 100%;
 }
 
 .shop-item__title {

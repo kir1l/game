@@ -8,12 +8,14 @@ const product = document.querySelectorAll('.shop__item'), // сам продук
 	btnBuy = document.querySelectorAll('.shop-item__button');
 
 let isFood = false;
-let lvlOfSpeed = 200, // колличество букв по нажатии клавиши
+let lvlOfSpeed = 1, // колличество букв по нажатии клавиши
 	salary = 0, // зарплата за 1 задание
 	money = 0,
 	lvl = 1,
 	localData = {},
 	isBoost = false;
+
+let buyedDetails = [];
 
 // получение информации карточки по которой нажали
 btnBuy.forEach((button) => {
@@ -28,8 +30,6 @@ btnBuy.forEach((button) => {
 			return;
 		}
 
-		money -= price; // покупка
-
 		// покупка еды
 		if (card.dataset.name == 'food') {
 			// проверка на наличие еды
@@ -37,7 +37,7 @@ btnBuy.forEach((button) => {
 				card.querySelector('.error-out').textContent = 'слишком много еды!';
 				return;
 			}
-
+			money -= price; // покупка
 			card.querySelector('.succes').textContent = 'куплено'; // успешно
 			isFood = true; // еда есть
 			let time = Number(card.querySelector('.time').textContent) * 60; // время в миллисекундах
@@ -45,6 +45,15 @@ btnBuy.forEach((button) => {
 		}
 
 		if (card.dataset.name == 'computer') {
+			if (buyedDetails !== undefined) {
+				if (buyedDetails.includes(card.dataset.index)) {
+					card.querySelector('.error-out').textContent = 'уже куплено';
+					return;
+				}
+			}
+			console.log(card.dataset.index);
+			money -= price; // покупка
+			buyedDetails.push(card.dataset.index);
 			card.querySelector('.succes').textContent = 'куплено'; // успешно
 			buyDetails(increase);
 		}
@@ -69,13 +78,17 @@ const buyDetails = (increase) => {
 	if (localStorage.getItem('details') !== null) {
 		const raw = localStorage.getItem('details');
 		const detailsData = JSON.parse(raw);
-		detailsData.detailIncrease += increase;
-		localStorage.setItem('details', JSON.stringify(detailsData));
+		const details = {
+			detailIncrease: increase,
+			buyedDetails: buyedDetails,
+		};
+		localStorage.setItem('details', JSON.stringify(details));
 		return;
 	}
 	// если деталей нет то создаем новую ячейку в localStorage
 	const details = {
 		detailIncrease: increase,
+		buyedDetails: [],
 	};
 	localStorage.setItem('details', JSON.stringify(details));
 };
@@ -83,6 +96,7 @@ const buyDetails = (increase) => {
 const update = () => {
 	headerLvlOut.textContent = Math.floor(lvl);
 	headerMoneyOut.textContent = money;
+	lvlFilter();
 };
 
 // сохранение данных при выходе из магазина
@@ -103,9 +117,14 @@ const saveLocalData = () => {
 
 // выгразка данных из localStorage в переменные
 window.addEventListener('load', () => {
+	// деструктуризация localData
 	const data = localStorage.getItem('data');
 	if (data == null) return;
-	({ lvl, lvlOfSpeed, money, salary, isBoost } = JSON.parse(data)); // деструктуризация localData
+	({ lvl, lvlOfSpeed, money, salary, isBoost } = JSON.parse(data));
+
+	const details = localStorage.getItem('details');
+	if (details == null) return;
+	({ buyedDetails } = JSON.parse(details));
 
 	// обнуление счетчика покупок еды если еда закончилась
 	if (localStorage.getItem('foodPurchases') == null) {
@@ -115,6 +134,7 @@ window.addEventListener('load', () => {
 	} else {
 		isFood = true;
 	}
+	lvlFilter();
 	update();
 });
 
@@ -155,7 +175,7 @@ options.forEach((option) => {
 	});
 });
 
-//фильтер
+//фильтр
 const filter = (option) => {
 	product.forEach((elem) => {
 		elem.classList.remove('disabled');
@@ -166,3 +186,14 @@ const filter = (option) => {
 		}
 	});
 };
+
+// фильтр по лвлу
+const lvlFilter = () => {
+	product.forEach((card) => {
+		card.classList.remove('disabled');
+		if (card.dataset.lvl > lvl) {
+			card.classList.add('disabled');
+		}
+	});
+};
+lvlFilter();
